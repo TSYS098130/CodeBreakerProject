@@ -4,14 +4,14 @@ let attempt = document.getElementById('attempt');
 function guess() {
     let input = document.getElementById('user-guess');
     
-    if(answer.vlaue == '' || attempt.value == ''){
+    if(answer.value == '' || attempt.value == ''){
     	setHiddenFields();
     }
     
     if(!validateInput(input.value)) {
-	return;
-	}
-	attempt.value++;
+			return;
+		}
+			attempt.value++;
 	
 	if(getResults(input.value)) {
 		setMessage('You Win! :)');
@@ -29,7 +29,7 @@ function getResults(input) {
 	for(i = 0; i < input.length; i++) {
 		if(input.charAt(i) == answer.value.charAt(i)) {
 			html += '<span class="glyphicon glyphicon-transfer"></span>';
-		} else if(answe.value.indexOf(input.charAt(I)) > -1) {
+		} else if(answer.value.indexOf(input.charAt(I)) > -1) {
 			html += '<span class="glyphicon glyphicon-remove"></span>';
 		} else {
 			html+='<span class="glyphicon glyphicon-remove"></span>';
@@ -45,7 +45,7 @@ function getResults(input) {
 }
 
 function setHiddenFields() {
-	answer.value = Math.floor(Math.random() *10000).toString();
+	answer.value = Math.floor(Math.random() * 10000).toString();
 	while(answer.value.length < 4) {
 		answer.value = "0" + answer.value;
 	}
